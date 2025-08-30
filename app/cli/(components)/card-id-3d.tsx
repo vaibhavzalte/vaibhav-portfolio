@@ -1,8 +1,9 @@
 import Tilt from "react-parallax-tilt";
+import Image from "next/image";
 
 const IdCard3d = () => {
   return (
-    <div className="flex-1 flex justify-center items-center  bg-blue-400 dark:bg-black ">
+    <div className="flex-1 flex justify-center items-center  bg-gray-200 dark:bg-black ">
       <Tilt
         glareEnable={true}
         glareColor="rgba(255,255,255,0.2)"
@@ -20,13 +21,14 @@ const IdCard3d = () => {
             dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 dark:text-white
           "
         >
-          {/* Top Section */}
           <div className="flex flex-col items-center">
-            <img
-              src="https://avatars.githubusercontent.com/u/000000?v=4" // <-- Replace with your image
+            <Image
+              src="/photo_vaibhav.JPG"
               alt="Vaibhav"
+              width={50}
+              height={60}
               className="
-                w-24 h-24 rounded-full shadow-lg border-4 
+                w-[120px] h-[120px] rounded-full shadow-lg border-4 
                 border-blue-500 dark:border-green-400
               "
             />
@@ -38,15 +40,16 @@ const IdCard3d = () => {
 
           {/* Skills */}
           <div className="space-y-2 text-sm">
-            <p>💻 React / Next.js / React Native</p>
-            <p>⚙️ Spring Boot / PostgreSQL / DynamoDB</p>
-            <p>☁️ AWS / GCP</p>
+            <p>⚙️ Java / Spring Boot / PostgreSQL</p>
+            <p>☁️ devops / jenkins / docker / GCP</p>
+            <p>💻 React / Next.js </p>
+            <p>💻 C / Python</p>
           </div>
 
           {/* Footer */}
           <div className="text-center">
             <p className="text-xs text-gray-500 dark:text-gray-400">
-              vaibhav.dev | @github
+              vaibhavzalte | @github
             </p>
           </div>
         </div>

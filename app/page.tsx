@@ -1,20 +1,21 @@
 "use client";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Timeline } from "../components/ui/timeline";
 
 export default function Dashboard() {
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 border-2 border-green-400">
+    <main className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 ">
       {/* Hero Section */}
-      <section className="text-center py-16">
+      <section className="text-center py-16 ">
         <h1 className="text-5xl font-extrabold mb-4">Hi, I’m Vaibhav 👋</h1>
         <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
           Full-Stack Developer specializing in building scalable web & mobile
           apps with modern technologies.
         </p>
+
+        {/* Inline Hero Buttons */}
         <div className="mt-6 flex justify-center gap-4">
           <Button>📄 Download Resume</Button>
           <Button variant="outline">💼 Contact Me</Button>
@@ -22,114 +23,130 @@ export default function Dashboard() {
       </section>
 
       {/* Portfolio Tabs */}
-      <section className="px-8 pb-16">
+      <section className="w-7xl pb-16  mx-auto">
         <Tabs defaultValue="projects" className="w-full">
-          <TabsList className="flex justify-center">
-            <TabsTrigger value="projects">Projects</TabsTrigger>
-            <TabsTrigger value="skills">Skills</TabsTrigger>
-            <TabsTrigger value="ai">Ask AI</TabsTrigger>
+          {/* Inline Tabs List */}
+          <TabsList className="flex justify-center gap-2 bg-transparent">
+            {["projects", "skills", "ai"].map((tab) => (
+              <TabsTrigger
+                key={tab}
+                value={tab}
+                className="group flex items-center gap-2 px-5 py-2  rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 transition-all border border-gray-200 dark:border-gray-700 hover:border-purple-400 hover:text-purple-500 data-[state=active]:bg-purple-500 data-[state=active]:text-white"
+              >
+                {/* Radio style circle */}
+                <span className="w-3.5 h-3.5 rounded-full border-2 border-gray-400 group-hover:border-purple-500 transition-colors flex items-center justify-center">
+                  <span className="w-2 h-2 rounded-full bg-transparent group-data-[state=active]:bg-white"></span>
+                </span>
+                {tab === "projects" && "Projects"}
+                {tab === "skills" && "Skills"}
+                {tab === "ai" && "Ask AI"}
+              </TabsTrigger>
+            ))}
           </TabsList>
 
           {/* Projects Tab */}
           <TabsContent value="projects">
-            <div className="grid md:grid-cols-2 gap-6 mt-8">
-              <Card className="hover:shadow-lg transition rounded-2xl">
-                <CardHeader>
-                  <CardTitle className="flex justify-between items-center">
-                    Portfolio Website <Badge>Next.js</Badge>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    Built with Next.js, TypeScript, TailwindCSS, and Shadcn UI.
-                  </p>
-                  <Button className="mt-4">View Project</Button>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition rounded-2xl">
-                <CardHeader>
-                  <CardTitle className="flex justify-between items-center">
-                    Backend API <Badge>Spring Boot</Badge>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    REST API with PostgreSQL & DynamoDB, deployed on AWS & GCP.
-                  </p>
-                  <Button className="mt-4">View Project</Button>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition rounded-2xl">
-                <CardHeader>
-                  <CardTitle className="flex justify-between items-center">
-                    Mobile App <Badge>React Native</Badge>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    Cross-platform booking app with modern UI and API
-                    integration.
-                  </p>
-                  <Button className="mt-4">View Project</Button>
-                </CardContent>
-              </Card>
-            </div>
+            <Timeline
+              items={[
+                {
+                  title: "Portfolio Website",
+                  badge: "Next.js",
+                  description:
+                    "Built with Next.js, TypeScript, TailwindCSS, and Shadcn UI.",
+                  action: (
+                    <div className="flex gap-3">
+                      <Button size="sm">View Project</Button>
+                      <Button size="sm" variant="outline">
+                        Source Code
+                      </Button>
+                    </div>
+                  ),
+                },
+                {
+                  title: "Backend API",
+                  badge: "Spring Boot",
+                  description:
+                    "REST API with PostgreSQL & DynamoDB, deployed on AWS & GCP.",
+                  action: (
+                    <div className="flex gap-3">
+                      <Button size="sm">View API</Button>
+                      <Button size="sm" variant="outline">
+                        Docs
+                      </Button>
+                    </div>
+                  ),
+                },
+                {
+                  title: "Mobile App",
+                  badge: "React Native",
+                  description:
+                    "Cross-platform booking app with modern UI and API integration.",
+                  action: (
+                    <div className="flex gap-3">
+                      <Button size="sm">View App</Button>
+                      <Button size="sm" variant="outline">
+                        GitHub
+                      </Button>
+                    </div>
+                  ),
+                },
+              ]}
+            />
           </TabsContent>
 
           {/* Skills Tab */}
           <TabsContent value="skills">
-            <div className="grid md:grid-cols-3 gap-6 mt-8">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Frontend</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>✅ React / Next.js / React Native</p>
-                  <p>✅ TypeScript / TailwindCSS</p>
-                  <p>✅ Shadcn UI</p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Backend</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>✅ Spring Boot / Node.js</p>
-                  <p>✅ PostgreSQL / DynamoDB</p>
-                  <p>✅ REST / GraphQL APIs</p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Cloud & DevOps</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>✅ AWS / GCP</p>
-                  <p>✅ Docker / Kubernetes</p>
-                  <p>✅ CI/CD Pipelines</p>
-                </CardContent>
-              </Card>
-            </div>
+            <Timeline
+              items={[
+                {
+                  title: "Frontend",
+                  description: (
+                    <>
+                      <p>✅ React / Next.js / React Native</p>
+                      <p>✅ TypeScript / TailwindCSS</p>
+                      <p>✅ Shadcn UI</p>
+                    </>
+                  ),
+                },
+                {
+                  title: "Backend",
+                  description: (
+                    <>
+                      <p>✅ Spring Boot / Node.js</p>
+                      <p>✅ PostgreSQL / DynamoDB</p>
+                      <p>✅ REST / GraphQL APIs</p>
+                    </>
+                  ),
+                },
+                {
+                  title: "Cloud & DevOps",
+                  description: (
+                    <>
+                      <p>✅ AWS / GCP</p>
+                      <p>✅ Docker / Kubernetes</p>
+                      <p>✅ CI/CD Pipelines</p>
+                    </>
+                  ),
+                },
+              ]}
+            />
           </TabsContent>
 
           {/* Ask AI Tab */}
           <TabsContent value="ai">
-            <Card className="mt-8">
-              <CardHeader>
-                <CardTitle>Ask AI Assistant</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="mb-4">
-                  Here you can integrate a free AI tool (like OpenAI API or
-                  HuggingFace) to answer your queries.
-                </p>
+            <div className="mt-8 p-6 border rounded-xl shadow-sm bg-white/70 dark:bg-gray-900/60 backdrop-blur-md">
+              <h3 className="text-xl font-bold mb-4">Ask AI Assistant</h3>
+              <p className="mb-4">
+                Here you can integrate a free AI tool (like OpenAI API or
+                HuggingFace) to answer your queries.
+              </p>
+
+              {/* Inline Ask AI Buttons */}
+              <div className="flex gap-3">
                 <Button>Start Chat</Button>
-              </CardContent>
-            </Card>
+                <Button variant="outline">Learn More</Button>
+              </div>
+            </div>
           </TabsContent>
         </Tabs>
       </section>

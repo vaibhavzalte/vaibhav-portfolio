@@ -3,7 +3,20 @@ import { useState, useRef, useEffect } from "react";
 
 export default function CMD() {
   const [input, setInput] = useState("");
-  const commands = ["welcome", "help", "about", "projects", "skills", "experience", "contact", "education", "certifications", "leadership", "sudo", "clear"];
+  const commands = [
+    "welcome",
+    "help",
+    "about",
+    "projects",
+    "skills",
+    "experience",
+    "contact",
+    "education",
+    "certifications",
+    "leadership",
+    "sudo",
+    "clear",
+  ];
   const [history, setHistory] = useState<{ cmd: string; output: string }[]>([
     {
       cmd: "welcome",
@@ -12,6 +25,7 @@ export default function CMD() {
   ]);
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
+  const [suggestion, setSuggestion] = useState("");
 
   const containerRef = useRef<HTMLDivElement>(null);
   const endRef = useRef<HTMLDivElement>(null);
@@ -51,6 +65,7 @@ export default function CMD() {
     if (!input.trim()) return;
     handleCommand(input.trim());
     setInput("");
+    setSuggestion("");
   };
 
   useEffect(() => {
@@ -67,6 +82,7 @@ export default function CMD() {
           : Math.max(0, historyIndex - 1);
       setHistoryIndex(newIndex);
       setInput(commandHistory[newIndex]);
+      setSuggestion("");
     } else if (e.key === "ArrowDown") {
       e.preventDefault();
       if (historyIndex === -1) return;
@@ -74,22 +90,40 @@ export default function CMD() {
         historyIndex === commandHistory.length - 1 ? -1 : historyIndex + 1;
       setHistoryIndex(newIndex);
       setInput(newIndex === -1 ? "" : commandHistory[newIndex]);
+      setSuggestion("");
+    } else if (e.key === "Tab") {
+      e.preventDefault();
+      if (suggestion) {
+        setInput(suggestion);
+        setSuggestion("");
+      }
     }
   };
+
+  useEffect(() => {
+    if (!input) {
+      setSuggestion("");
+      return;
+    }
+    const match = commands.find((c) => c.startsWith(input.toLowerCase()));
+    setSuggestion(match && match !== input ? match : "");
+  }, [input]);
 
   return (
     <div
       ref={containerRef}
       className="
-        h-[650px] flex-[2] font-mono p-4 overflow-y-auto border 
+        h-[650px] flex-[2] font-mono p-4 overflow-y-auto border-l
         bg-white text-gray-800 border-gray-300
         dark:bg-black dark:text-green-400 dark:border-green-500
         [scrollbar-color:#22c55e_black] [scrollbar-width:thin]
       "
     >
-      <div className="border-b pb-2 mb-2 font-mono 
+      <div
+        className="border-b pb-2 mb-2 font-mono 
         border-gray-300 text-gray-700 
-        dark:border-green-400 dark:text-green-400">
+        dark:border-green-400 dark:text-green-400"
+      >
         {commands.join(" | ")}
       </div>
 
@@ -121,13 +155,23 @@ export default function CMD() {
         <span className="mr-2 text-blue-600 dark:text-blue-400">
           vaibhav@portfolio:~$
         </span>
-        <input
-          className="flex-1 bg-transparent border-none outline-none overflow-hidden text-gray-800 dark:text-green-400"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          autoFocus
-        />
+        <div className="relative flex-1">
+          <input
+            className="w-full bg-transparent border-none outline-none text-gray-800 dark:text-green-400"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            autoFocus
+          />
+          {suggestion && (
+            <span className="absolute left-0 pointer-events-none text-gray-400 dark:text-green-600">
+              {input}
+              <span className="opacity-50">
+                {suggestion.slice(input.length)}
+              </span>
+            </span>
+          )}
+        </div>
       </form>
 
       <div ref={endRef} />

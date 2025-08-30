@@ -10,7 +10,7 @@ export default function Header() {
   const isCli = pathname === "/cli";
 
   return (
-    <header className="flex justify-between items-center p-2 border-b shadow-sm">
+    <header className={`flex justify-between ${isCli ? "" : "bg-gray-900" } items-center p-2 border-b shadow-sm`}>
       <div>
         <Link
           href="/"
