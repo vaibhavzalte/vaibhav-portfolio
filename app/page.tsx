@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 
 export default function Dashboard() {
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <main className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 border-2 border-green-400">
       {/* Hero Section */}
       <section className="text-center py-16">
         <h1 className="text-5xl font-extrabold mb-4">Hi, I’m Vaibhav 👋</h1>
