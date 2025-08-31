@@ -48,6 +48,14 @@ export default function CMD() {
         output =
           "Projects:\n1. Airline Invoice System (/projects/airline)\n2. Cab Booking App (/projects/cab)";
         break;
+      case "education":
+        output =
+          "Education 📚\n" +
+          "🎓 M.Sc. Computer Science | Pune University (PUCSD) | CGPA: 7.3 | 2022–2024\n" +
+          "🎓 B.Sc. Computer Science | N.V.P. College Lasalgaon | CGPA: 9.31 | 2019–2022\n" +
+          "🏫 HSC | S.S.G.M. College Kopargaon | 61.38% | 2017–2019\n" +
+          "🏫 SSC | Sant Dnyaneshwar Vidyalay Katarni | 81.80% | 2012–2017";
+        break;
       case "clear":
         setHistory([]);
         return;

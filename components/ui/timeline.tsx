@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 interface TimelineItem {
   title: string;
-  badge?: string;
+  badges?: string[];
   description: React.ReactNode;
   action?: React.ReactNode;
 }
@@ -48,14 +48,17 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
             <div className="ml-2 p-5 rounded-2xl bg-white/70 dark:bg-gray-900/60 backdrop-blur-md shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300">
               <h3 className="flex items-center gap-2 text-lg font-semibold text-gray-900 dark:text-gray-100">
                 {item.title}
-                {item.badge && (
-                  <Badge
-                    className={cn(
-                      "ml-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-md"
-                    )}
-                  >
-                    {item.badge}
-                  </Badge>
+                {item.badges && (
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {item.badges.map((badge: string, i: number) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-md"
+                      >
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
                 )}
               </h3>
 

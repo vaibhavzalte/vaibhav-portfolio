@@ -3,6 +3,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Timeline } from "../components/ui/timeline";
+import { GraduationCap, Building, University ,BarChart3, Calendar } from "lucide-react";
 
 export default function Dashboard() {
   return (
@@ -27,7 +28,7 @@ export default function Dashboard() {
         <Tabs defaultValue="projects" className="w-full">
           {/* Inline Tabs List */}
           <TabsList className="flex justify-center gap-2 bg-transparent">
-            {["projects", "skills", "ai"].map((tab) => (
+            {["projects", "skills", "ai", "education"].map((tab) => (
               <TabsTrigger
                 key={tab}
                 value={tab}
@@ -40,6 +41,7 @@ export default function Dashboard() {
                 {tab === "projects" && "Projects"}
                 {tab === "skills" && "Skills"}
                 {tab === "ai" && "Ask AI"}
+                {tab === "education" && "Education"}
               </TabsTrigger>
             ))}
           </TabsList>
@@ -50,7 +52,7 @@ export default function Dashboard() {
               items={[
                 {
                   title: "Portfolio Website",
-                  badge: "Next.js",
+                  badges: ["Spring Boot", "PostgreSQL", "AWS", "GCP"],
                   description:
                     "Built with Next.js, TypeScript, TailwindCSS, and Shadcn UI.",
                   action: (
@@ -64,7 +66,7 @@ export default function Dashboard() {
                 },
                 {
                   title: "Backend API",
-                  badge: "Spring Boot",
+                  badges: ["Spring Boot"],
                   description:
                     "REST API with PostgreSQL & DynamoDB, deployed on AWS & GCP.",
                   action: (
@@ -78,7 +80,7 @@ export default function Dashboard() {
                 },
                 {
                   title: "Mobile App",
-                  badge: "React Native",
+                  badges: ["React Native"],
                   description:
                     "Cross-platform booking app with modern UI and API integration.",
                   action: (
@@ -126,6 +128,105 @@ export default function Dashboard() {
                       <p>✅ Docker / Kubernetes</p>
                       <p>✅ CI/CD Pipelines</p>
                     </>
+                  ),
+                },
+              ]}
+            />
+          </TabsContent>
+          <TabsContent value="education">
+            <Timeline
+              items={[
+                {
+                  title: "M.Sc. Computer Science",
+                  badges: ["PUCSD"],
+                  description: (
+                    <div className="relative bg-white/60 dark:bg-gray-900/60 p-4 rounded-xl shadow-md">
+                      {/* Year - top right */}
+                      <span className="absolute top-0 right-4 flex items-center gap-1 text-sm font-medium text-purple-600 dark:text-purple-400">
+                        <Calendar className="w-4 h-4" />
+                        2022 – 2024
+                      </span>
+
+                      {/* University */}
+                      <p className="flex items-center gap-2 font-medium mb-2 text-bold text-2xl">
+                        🏛️Pune University – Computer Science Department (PUCSD)
+                      </p>
+
+                      {/* Score */}
+                      <p className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                        <BarChart3 className="ml-1 w-5 h-5 text-green-600" />
+                        CGPA: <span className="font-semibold">7.3</span>
+                      </p>
+                    </div>
+                  ),
+                },
+                {
+                  title: "B.Sc. Computer Science",
+                  description: (
+                    <div className="relative bg-white/60 dark:bg-gray-900/60 p-4 rounded-xl shadow-md">
+                      {/* Year - top right */}
+                      <span className="absolute top-0 right-4 flex items-center gap-1 text-sm font-medium text-purple-600 dark:text-purple-400">
+                        <Calendar className="w-4 h-4" />
+                        2019 – 2022
+                      </span>
+
+                      {/* University */}
+                      <p className="flex items-center gap-2 font-medium mb-2 text-bold text-2xl">
+                        🏛️N.V.P. College Lasalgaon 
+                      </p>
+
+                      {/* Score */}
+                      <p className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                        <BarChart3 className="ml-1 w-5 h-5 text-green-600" />
+                        CGPA: <span className="font-semibold">9.31</span>
+                      </p>
+                    </div>
+                  ),
+                },
+                {
+                  title: "HSC",
+                  description: (
+                    <div className="relative bg-white/60 dark:bg-gray-900/60 p-4 rounded-xl shadow-md">
+                      {/* Year - top right */}
+                      <span className="absolute top-0 right-4 flex items-center gap-1 text-sm font-medium text-purple-600 dark:text-purple-400">
+                        <Calendar className="w-4 h-4" />
+                        2017 – 2019
+                      </span>
+
+                      {/* University */}
+                      <p className="flex items-center gap-2 font-medium mb-2 text-bold text-2xl">
+                        🏛️S.S.G.M. college kopargaon
+                      </p>
+
+                      {/* Score */}
+                      <p className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                        <BarChart3 className="ml-1 w-5 h-5 text-green-600" />
+                        Percentage: <span className="font-semibold">61.38%</span>
+                      </p>
+                    </div>
+                  ),
+                },
+                {
+                  title: "SSC",
+                  description: (
+                    <div className="relative bg-white/60 dark:bg-gray-900/60 p-4 rounded-xl shadow-md">
+                      {/* Year - top right */}
+                      <span className="absolute top-0 right-4 flex items-center gap-1 text-sm font-medium text-purple-600 dark:text-purple-400">
+                        <Calendar className="w-4 h-4" />
+                        2012 - 2017
+                      </span>
+
+                      {/* University */}
+                      <p className="flex items-center gap-2 font-medium mb-2 text-bold text-2xl">
+                        🏛️Sant Dnyaneshwar Vidyalay Katarni, Katarni
+                      </p>
+
+                      {/* Score */}
+                      <p className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+                        <BarChart3 className="ml-1 w-5 h-5 text-green-600" />
+                        Percentage: <span className="font-semibold">81.80%</span>
+                      </p>
+                    </div>
                   ),
                 },
               ]}
