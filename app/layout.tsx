@@ -2,7 +2,6 @@
 
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { usePathname } from "next/navigation";
 
@@ -28,9 +27,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
           {children}
-          {!hideFooter && <Footer />}
         </ThemeProvider>
       </body>
     </html>

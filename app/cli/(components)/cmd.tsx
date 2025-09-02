@@ -121,9 +121,10 @@ export default function CMD() {
     <div
       ref={containerRef}
       className="
-        h-[650px] flex-[2] font-mono p-4 overflow-y-auto border-l
+        flex-[2] font-mono p-4 overflow-y-auto border-l
+        border-t-2
         bg-white text-gray-800 border-gray-300
-        dark:bg-black dark:text-green-400 dark:border-green-500
+        dark:bg-black dark:text-green-400 dark:border-green-400
         [scrollbar-color:#22c55e_black] [scrollbar-width:thin]
       "
     >
