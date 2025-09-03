@@ -7,57 +7,54 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { dashboardData } from "./__data/data";
 import { BarChart3, Calendar } from "lucide-react";
+import Hero from "./(components)/hero-section";
+import { CoolMode } from "@/components/magicui/cool-mode";
 
 export default function Dashboard() {
   return (
-    <div className="min-h-screen">
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+      <main className="flex-1 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
         {/* Hero Section */}
-        <section className="text-center py-12 sm:py-16">
-          <h1 className="text-3xl sm:text-5xl font-extrabold mb-4">
-            Hi, I’m Vaibhav 👋
-          </h1>
-          <p className="text-base sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
-            Full-Stack Developer specializing in building scalable web & mobile
-            apps with modern technologies.
-          </p>
-        </section>
+        <Hero />
 
         {/* Tabs */}
         <section className="max-w-7xl px-4 sm:px-6 lg:px-8 pb-16 mx-auto">
           <Tabs defaultValue="projects" className="w-full">
             {/* Tabs List */}
             <TabsList
-              className="w-full h-auto flex flex-wrap justify-center gap-2 bg-transparent"
+              className="w-full h-auto flex flex-wrap justify-center gap-7 bg-transparent"
             >
               {dashboardData.tabs.map((tab) => (
-                <TabsTrigger
-                  key={tab.id}
-                  value={tab.id}
-                  className="group flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium 
+                <CoolMode key={tab.id}
+                >
+                  <TabsTrigger
+                    value={tab.id}
+                    className="group flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium 
                     text-gray-700 dark:text-gray-300 transition-all border border-gray-200 dark:border-gray-700 
                     hover:border-purple-400 hover:text-purple-500 
                     data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-500 
                     data-[state=active]:text-white shadow-sm"
-                >
-                  {/* Radio Circle */}
-                  <span
-                    className="w-3.5 h-3.5 rounded-full border-2 border-gray-400 
+                  >
+                    {/* Radio Circle */}
+                    <span
+                      className="w-3.5 h-3.5 rounded-full border-2 border-gray-400 
                       transition-colors flex items-center justify-center
                       group-data-[state=active]:border-white"
-                  >
-                    <span
-                      className="w-2 h-2 rounded-full bg-transparent 
+                    >
+                      <span
+                        className="w-2 h-2 rounded-full bg-transparent 
                         group-data-[state=active]:bg-white"
-                    ></span>
-                  </span>
-                  {tab.label}
-                </TabsTrigger>
+                      ></span>
+                    </span>
+                    {tab.label}
+                  </TabsTrigger>
+                </CoolMode>
               ))}
             </TabsList>
 
             {/* Projects */}
+
             <TabsContent value="projects">
               <Timeline
                 items={dashboardData.projects.map((p) => ({

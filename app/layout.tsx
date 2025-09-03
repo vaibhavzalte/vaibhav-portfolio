@@ -2,21 +2,13 @@
 
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-import Footer from "@/components/footer";
-import { usePathname } from "next/navigation";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
 
-  const noFooterRoutes = ["/cli"];
-
-  const hideFooter = noFooterRoutes.some((route) =>
-    pathname.startsWith(route)
-  );
 
   return (
     <html lang="en" suppressHydrationWarning>
