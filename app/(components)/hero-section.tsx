@@ -51,7 +51,7 @@ export default function Hero() {
 
         {/* Social Links in PinContainers */}
         <div className="mt-16 flex flex-wrap items-center justify-center gap-0">
-          <PinContainer title="GitHub" href="https://github.com/your-username">
+          <PinContainer title="GitHub" href="https://github.com/vaibhavzalte">
             <div className="flex flex-col items-center justify-center p-4 w-15 h-15 rounded-xl bg-gradient-to-br from-gray-900 via-gray-700 to-gray-600 hover:shadow-lg hover:shadow-gray-400/30 transition">
               <Github size={24} className="text-white " />
             </div>
@@ -59,21 +59,21 @@ export default function Hero() {
 
           <PinContainer
             title="LinkedIn"
-            href="https://linkedin.com/in/your-linkedin"
+            href="http://www.linkedin.com/in/vaibhavzalte"
           >
             <div className="flex flex-col items-center justify-center p-4 w-15 h-15 rounded-xl bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 hover:shadow-lg hover:shadow-blue-400/30 transition">
               <Linkedin size={24} className="text-white" />
             </div>
           </PinContainer>
 
-          <PinContainer title="LeetCode" href="https://leetcode.com/">
+          <PinContainer title="LeetCode" href="https://leetcode.com/vaibhav_zalte">
             <div className="flex flex-col items-center justify-center p-3 w-15 h-15 rounded-xl bg-gradient-to-br from-black via-gray-900 to-orange-500 hover:shadow-lg hover:shadow-orange-400/30 transition">
               <Terminal size={25} className="text-white" />
               <p className="text-xs text-orange-300 font-medium">LeetCode</p>
             </div>
           </PinContainer>
 
-          <PinContainer title="Resume" href="/resume.pdf">
+          <PinContainer title="Resume" href="/vaibhav_resume.pdf">
             <div className="flex flex-col items-center justify-center p-3 w-15 h-15 rounded-xl bg-gradient-to-br from-green-600 via-emerald-500 to-lime-400 hover:shadow-lg hover:shadow-green-400/30 transition">
               <FileDown size={25} className="text-white" />
               <p className="text-xs text-white font-medium">Resume</p>

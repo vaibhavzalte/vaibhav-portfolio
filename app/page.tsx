@@ -9,10 +9,12 @@ import { dashboardData } from "./__data/data";
 import { BarChart3, Calendar } from "lucide-react";
 import Hero from "./(components)/hero-section";
 import { CoolMode } from "@/components/magicui/cool-mode";
+import SplashCursor from '../components/SplashCursor'
 
 export default function Dashboard() {
   return (
     <div className="flex flex-col min-h-screen">
+    <SplashCursor/>
       <Header />
       <main className="flex-1 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
         {/* Hero Section */}
