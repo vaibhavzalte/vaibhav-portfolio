@@ -1,9 +1,13 @@
 export const dashboardData = {
     tabs: [
         { id: "projects", label: "Projects" },
+        { id: "experience", label: "Experience" },
         { id: "skills", label: "Skills" },
-        { id: "ai", label: "Ask AI" },
         { id: "education", label: "Education" },
+        { id: "about", label: "About" },
+        { id: "contact", label: "Contact" },
+        { id: "achievements", label: "Achievements" },
+        { id: "ai", label: "Ask AI" },
     ],
 
     projects: [

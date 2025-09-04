@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { AuroraText } from "@/components/magicui/aurora-text";
 import { PinContainer } from "@/components/ui/3d-pin";
-import { Github, Linkedin, FileDown } from "lucide-react";
+import { Github, Linkedin, FileDown, Terminal } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -50,11 +50,10 @@ export default function Hero() {
         </motion.p>
 
         {/* Social Links in PinContainers */}
-        <div className="mt-16 flex flex-wrap items-center justify-center gap-12">
+        <div className="mt-16 flex flex-wrap items-center justify-center gap-0">
           <PinContainer title="GitHub" href="https://github.com/your-username">
-            <div className="flex flex-col items-center justify-center p-4 w-20 h-20 rounded-xl bg-gradient-to-br from-gray-900 via-gray-700 to-gray-600 hover:shadow-lg hover:shadow-gray-400/30 transition">
-              <Github size={24} className="text-white mb-2" />
-              <p className="text-xs text-white font-medium">GitHub</p>
+            <div className="flex flex-col items-center justify-center p-4 w-15 h-15 rounded-xl bg-gradient-to-br from-gray-900 via-gray-700 to-gray-600 hover:shadow-lg hover:shadow-gray-400/30 transition">
+              <Github size={24} className="text-white " />
             </div>
           </PinContainer>
 
@@ -62,15 +61,21 @@ export default function Hero() {
             title="LinkedIn"
             href="https://linkedin.com/in/your-linkedin"
           >
-            <div className="flex flex-col items-center justify-center p-4 w-20 h-20 rounded-xl bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 hover:shadow-lg hover:shadow-blue-400/30 transition">
-              <Linkedin size={24} className="text-white mb-2" />
-              <p className="text-xs text-white font-medium">LinkedIn</p>
+            <div className="flex flex-col items-center justify-center p-4 w-15 h-15 rounded-xl bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 hover:shadow-lg hover:shadow-blue-400/30 transition">
+              <Linkedin size={24} className="text-white" />
+            </div>
+          </PinContainer>
+
+          <PinContainer title="LeetCode" href="https://leetcode.com/">
+            <div className="flex flex-col items-center justify-center p-3 w-15 h-15 rounded-xl bg-gradient-to-br from-black via-gray-900 to-orange-500 hover:shadow-lg hover:shadow-orange-400/30 transition">
+              <Terminal size={25} className="text-white" />
+              <p className="text-xs text-orange-300 font-medium">LeetCode</p>
             </div>
           </PinContainer>
 
           <PinContainer title="Resume" href="/resume.pdf">
-            <div className="flex flex-col items-center justify-center p-4 w-20 h-20 rounded-xl bg-gradient-to-br from-green-600 via-emerald-500 to-lime-400 hover:shadow-lg hover:shadow-green-400/30 transition">
-              <FileDown size={24} className="text-white mb-2" />
+            <div className="flex flex-col items-center justify-center p-3 w-15 h-15 rounded-xl bg-gradient-to-br from-green-600 via-emerald-500 to-lime-400 hover:shadow-lg hover:shadow-green-400/30 transition">
+              <FileDown size={25} className="text-white" />
               <p className="text-xs text-white font-medium">Resume</p>
             </div>
           </PinContainer>
