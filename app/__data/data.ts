@@ -1,7 +1,7 @@
 export const dashboardData = {
     tabs: [
-        { id: "projects", label: "Projects" },
-        { id: "experience", label: "Experience" },
+        { id: "projects", label: "Personal Projects" },
+        { id: "experience", label: "Work Experience" },
         { id: "skills", label: "Skills" },
         { id: "education", label: "Education" },
         { id: "about", label: "About" },
@@ -12,22 +12,46 @@ export const dashboardData = {
 
     projects: [
         {
-            title: "Portfolio Website",
-            badges: ["Spring Boot", "PostgreSQL", "AWS", "GCP"],
-            description: "Built with Next.js, TypeScript, TailwindCSS, and Shadcn UI.",
+            title: "Myntra Clone",
+            badges: ["React.js", "Bootstrap", "Redux", "Toolkit"],
+            description: "Developed a responsive e-commerce website clone of Myntra using React and Bootstrap. Integrated Redux Toolkit for state management to enable dynamic cart functionality and bill generation. Designed the interface to closely replicate the original platform, providing a smooth shopping experience.",
             actions: [
-                { label: "View Project", variant: "default" as const },
-                { label: "Source Code", variant: "outline" as const },
+                { label: "View Project", variant: "default" as const, url: "https://github.com/vaibhavzalte/" },
+                { label: "Source Code", variant: "outline" as const, url: "https://github.com/vaibhavzalte/" },
             ],
         },
         {
-            title: "Backend API",
-            badges: ["Spring Boot"],
+            title: "Personal Journal Application",
+            badges: ["Java", "Spring Boot", "MongoDB", "Postman", "IntelliJ IDEA"],
             description:
-                "REST API with PostgreSQL & DynamoDB, deployed on AWS & GCP.",
+                "Developed a journal application for documenting daily activities and managing to-do lists, with user authentication and authorization via Spring Security for secure access. Integrated Spring Boot with MongoDB for efficient data storage and used RESTful APIs to enhance user interaction, ensuring data consistency through Spring's transactional management.",
             actions: [
-                { label: "View API", variant: "default" as const },
-                { label: "Docs", variant: "outline" as const },
+                { label: "View Project", variant: "default" as const, url: "https://github.com/vaibhavzalte/" },
+                { label: "Source Code", variant: "outline" as const, url: "https://github.com/vaibhavzalte/" },
+            ],
+        },
+        {
+            title: "Driver Drowsiness Detection System",
+            badges: ["Python", "CNN", "OpenCV", "Dlib", "Machine Learning"],
+            description:
+                "Developed a real-time driver drowsiness detection system using computer vision and deep learning techniques. Implemented a Convolutional Neural Network (CNN) to analyze eye regions for drowsiness detection, utilizing OpenCV for video capture and Dlib for facial landmark detection. The system continuously monitors the driver's eyes and provides alerts to enhance safety when signs of drowsiness are detected.",
+            actions: [
+                { label: "View Project", variant: "default" as const, url: "https://github.com/vaibhavzalte/" },
+                { label: "Source Code", variant: "outline" as const, url: "https://github.com/vaibhavzalte/" },
+            ],
+        },
+    ],
+    experience: [
+        {
+            position: "Software Developer",
+            companyName: "North Star Metrics",
+            companyUrl: "https://ntsmetrics.com/",
+            duration: "July–Sep 2024",
+            badges: ["React.js", "Tailwind CSS", "Redux Toolkit", "Git"],
+            description: "I build responsive web pages with React.js and Tailwind CSS, manage state using Redux Toolkit, and integrate APIs with Axios for seamless data handling.",
+            actions: [
+                { label: "View Project", variant: "default" as const, url: "https://github.com/vaibhavzalte/" },
+                { label: "Source Code", variant: "outline" as const, url: "https://github.com/vaibhavzalte/" },
             ],
         },
     ],

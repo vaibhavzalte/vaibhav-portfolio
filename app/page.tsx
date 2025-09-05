@@ -14,7 +14,7 @@ import SplashCursor from '../components/SplashCursor'
 export default function Dashboard() {
   return (
     <div className="flex flex-col min-h-screen">
-    <SplashCursor/>
+      <SplashCursor />
       <Header />
       <main className="flex-1 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
         {/* Hero Section */}
@@ -66,15 +66,64 @@ export default function Dashboard() {
                   action: (
                     <div className="flex gap-3 flex-wrap">
                       {p.actions.map((a, i) => (
-                        <Button key={i} size="sm" variant={a.variant}>
-                          {a.label}
-                        </Button>
+                        <a
+                          key={i}
+                          href={a?.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button size="sm" variant={a.variant}>
+                            {a.label}
+                          </Button>
+                        </a>
                       ))}
                     </div>
                   ),
                 }))}
               />
             </TabsContent>
+
+            <TabsContent value="experience">
+              <Timeline
+                items={dashboardData.experience.map((exp, i) => ({
+                  title: `${exp.position} @  ${exp.companyName} `,
+                  badges: exp.badges,
+                  description: (
+                    <>
+                      <a
+                        href={exp.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
+                      >
+                        {exp.companyName}
+                      </a>{" "}
+                      <span className="text-sm text-gray-500 dark:text-gray-400">
+                        ({exp.duration})
+                      </span>
+                      <p className="mt-2">{exp.description}</p>
+                    </>
+                  ),
+                  action: (
+                    <div className="flex gap-3 flex-wrap">
+                      {exp.actions.map((a, idx) => (
+                        <a
+                          key={idx}
+                          href={a?.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button size="sm" variant={a.variant}>
+                            {a.label}
+                          </Button>
+                        </a>
+                      ))}
+                    </div>
+                  ),
+                }))}
+              />
+            </TabsContent>
+
 
             {/* Skills */}
             <TabsContent value="skills">

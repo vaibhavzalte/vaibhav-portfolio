@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
+// import { Badge } from "@/components/ui/badge";
+// import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
 interface TimelineItem {

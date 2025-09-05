@@ -1,5 +1,5 @@
-import Tilt from "react-parallax-tilt";
-import Image from "next/image";
+// import Tilt from "react-parallax-tilt";
+// import Image from "next/image";
 import ProfileCard from "@/components/custom/ProfileCard";
 const IdCard3d = () => {
   return (
