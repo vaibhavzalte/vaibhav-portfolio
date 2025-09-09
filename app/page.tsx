@@ -10,6 +10,7 @@ import { BarChart3, Calendar } from "lucide-react";
 import Hero from "./(components)/hero-section";
 import { CoolMode } from "@/components/magicui/cool-mode";
 import SplashCursor from '../components/SplashCursor'
+import ContactPage from "./(components)/contact";
 
 export default function Dashboard() {
   return (
@@ -170,6 +171,10 @@ export default function Dashboard() {
             </TabsContent>
 
             {/* AI */}
+            <TabsContent value="contact">
+              <ContactPage/>
+            </TabsContent>
+
             <TabsContent value="ai">
               <div className="p-4 border rounded-xl shadow-sm">
                 <h3 className="font-bold mb-2">Ask AI Assistant</h3>
