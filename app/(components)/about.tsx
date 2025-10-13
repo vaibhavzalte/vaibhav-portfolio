@@ -6,7 +6,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import ElectricBorder from '@/components/ElectricBorder'
-import { PixelImage } from "@/components/magicui/pixel-image";
 import {
     FaJava,
     FaReact,
@@ -100,7 +99,6 @@ export default function AboutPage() {
                                             height={300}
                                             className="relative rounded-3xl shadow-2xl  border-gray-800"
                                         />
-                                        {/* <PixelImage src="/photo_vaibhav.png" grid="4x6" /> */}
                                     </div>
                                 </motion.div>
                             </div>

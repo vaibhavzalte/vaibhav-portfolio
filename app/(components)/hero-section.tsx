@@ -73,7 +73,7 @@ export default function Hero() {
             </div>
           </PinContainer>
 
-          <PinContainer title="Resume" href="/vaibhav_resume.pdf">
+          <PinContainer title="Resume" href="/vaibhav-zalte-resume.pdf">
             <div className="flex flex-col items-center justify-center p-3 w-15 h-15 rounded-xl bg-gradient-to-br from-green-600 via-emerald-500 to-lime-400 hover:shadow-lg hover:shadow-green-400/30 transition">
               <FileDown size={25} className="text-white" />
               <p className="text-xs text-white font-medium">Resume</p>

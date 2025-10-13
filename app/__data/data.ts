@@ -6,8 +6,7 @@ export const dashboardData = {
         { id: "education", label: "Education" },
         { id: "about", label: "About" },
         { id: "contact", label: "Contact" },
-        { id: "achievements", label: "Achievements" },
-        { id: "ai", label: "Ask AI" },
+        { id: "achievements", label: "TECHNICAL ACCOMPLISHMENTS" },
     ],
 
     projects: [
@@ -44,11 +43,28 @@ export const dashboardData = {
     experience: [
         {
             position: "Software Developer",
+            companyName: "Amigo Nexus Technology",
+            companyUrl: "https://amigonexus.com/",
+            duration: "Oct-2024 - Present",
+            badges: ["Java", "Spring Boot", "Microservices", "Hibernate", "Git", "PostgreSQL", "Docker", "Jenkins", "GCP", "Rest API",
+                "React.js", "Tailwind CSS",
+            ],
+            description: [
+                "Developed and maintained backend microservices for Travel Invoicing Software using Spring Boot and PostgreSQL, optimizing performance and reliability.",
+                "Created auditing microservices for monitoring application activities. ", "Integrated GCP Storage for secure data management. ", "Automated DevOps tasks (Docker, Jenkins, GCP) and developed pipelines for invoice data backupand email notifications. ", "Collaborated on React.js frontend modules, ensuring seamless integration with backend services. ", " Gained experience in Git/GitHub, JUnit unit testing, and Selenium automated testing. ", "Streamlined infrastructure by consolidating multiple Spring Boot microservices into a single service,reducing costs.",
+            ],
+            actions: [
+                { label: "View Project", variant: "default" as const, url: "https://github.com/vaibhavzalte/" },
+                { label: "Source Code", variant: "outline" as const, url: "https://github.com/vaibhavzalte/" },
+            ],
+        },
+        {
+            position: "Software Developer",
             companyName: "North Star Metrics",
             companyUrl: "https://ntsmetrics.com/",
             duration: "July–Sep 2024",
             badges: ["React.js", "Tailwind CSS", "Redux Toolkit", "Git"],
-            description: "I build responsive web pages with React.js and Tailwind CSS, manage state using Redux Toolkit, and integrate APIs with Axios for seamless data handling.",
+            description: ["I build responsive web pages with React.js and Tailwind CSS", "Managed state using Redux Toolkit, and integrate APIs with Axios for seamless data handling."],
             actions: [
                 { label: "View Project", variant: "default" as const, url: "https://github.com/vaibhavzalte/" },
                 { label: "Source Code", variant: "outline" as const, url: "https://github.com/vaibhavzalte/" },
@@ -76,7 +92,7 @@ export const dashboardData = {
     education: [
         {
             title: "M.Sc. Computer Science",
-            institute: "Pune University – PUCSD",
+            institute: "Pune University Computer Science Department – PUCSD",
             year: "2022 – 2024",
             result: "CGPA: 7.3",
             type: "cgpa",
@@ -103,4 +119,12 @@ export const dashboardData = {
             type: "percentage",
         },
     ],
+    achievements: [
+        {
+            title: "LeetCode - Problem Solving",
+            description: [
+                "I solved 280 problems of DSA on LeetCode",
+            ]
+        },
+    ]
 };

@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import { dashboardData } from "@/app/__data/data";
 
 export default function CMD() {
   const [input, setInput] = useState("");
@@ -12,9 +13,6 @@ export default function CMD() {
     "experience",
     "contact",
     "education",
-    "certifications",
-    "leadership",
-    "sudo",
     "clear",
   ];
   const [history, setHistory] = useState<{ cmd: string; output: string }[]>([
@@ -30,6 +28,46 @@ export default function CMD() {
   const containerRef = useRef<HTMLDivElement>(null);
   const endRef = useRef<HTMLDivElement>(null);
 
+  const formatProjects = () => {
+    return dashboardData.projects
+      .map((project, index) => {
+        return `${index + 1}. ${project.title}\n   Technologies: ${project.badges.join(", ")}\n   Description: ${project.description}\n   Actions: ${project.actions.map(action => action.label).join(", ")}`;
+      })
+      .join("\n\n");
+  };
+
+  const formatExperience = () => {
+    return dashboardData.experience
+      .map((exp, index) => {
+        return `${index + 1}. ${exp.position} at ${exp.companyName}\n   Duration: ${exp.duration}\n   Technologies: ${exp.badges.join(", ")}\n   Responsibilities:\n   ${exp.description.map(desc => `   • ${desc}`).join("\n   ")}`;
+      })
+      .join("\n\n");
+  };
+
+  const formatSkills = () => {
+    return dashboardData.skills
+      .map(skill => {
+        return `${skill.title}:\n${skill.description.map(desc => `   ${desc}`).join("\n")}`;
+      })
+      .join("\n\n");
+  };
+
+  const formatEducation = () => {
+    return dashboardData.education
+      .map(edu => {
+        return `🎓 ${edu.title}\n   Institute: ${edu.institute}\n   Year: ${edu.year}\n   Result: ${edu.result}`;
+      })
+      .join("\n\n");
+  };
+
+  const formatAchievements = () => {
+    return dashboardData.achievements
+      .map(achievement => {
+        return `🏆 ${achievement.title}\n${achievement.description.map(desc => `   ${desc}`).join("\n")}`;
+      })
+      .join("\n\n");
+  };
+
   const handleCommand = (cmd: string) => {
     let output = "";
     switch (cmd.toLowerCase()) {
@@ -38,23 +76,37 @@ export default function CMD() {
           "Welcome to Vaibhav's Portfolio! ✨\nFor any details type 'help'.";
         break;
       case "help":
-        output = "Available commands:\n- about\n- projects\n- clear\n- help";
+        output = "Available commands:\n" +
+          commands.filter(c => !['welcome', 'help', 'clear'].includes(c))
+            .map(c => `- ${c}`)
+            .join("\n") +
+          "\n- clear";
         break;
       case "about":
-        output =
-          "Vaibhav is a passionate software developer skilled in React, Next.js, Spring Boot, and Cloud ☁️";
+        output = dashboardData.tabs.find(tab => tab.id === "about")?.label +
+          "\n\nHi, I’m Vaibhav 👋 \n A passionate Software Developer with 1 year of experience. \n I specialize in building scalable backend systems using Java (Spring Boot), Microservices, and PostgreSQL. \n I also explore DevOps and create modern UIs with React & Next.js.";
         break;
       case "projects":
-        output =
-          "Projects:\n1. Airline Invoice System (/projects/airline)\n2. Cab Booking App (/projects/cab)";
+        output = "🚀 Personal Projects\n\n" + formatProjects();
+        break;
+      case "skills":
+        output = "💻 Technical Skills\n\n" + formatSkills();
+        break;
+      case "experience":
+        output = "💼 Work Experience\n\n" + formatExperience();
         break;
       case "education":
-        output =
-          "Education 📚\n" +
-          "🎓 M.Sc. Computer Science | Pune University (PUCSD) | CGPA: 7.3 | 2022–2024\n" +
-          "🎓 B.Sc. Computer Science | N.V.P. College Lasalgaon | CGPA: 9.31 | 2019–2022\n" +
-          "🏫 HSC | S.S.G.M. College Kopargaon | 61.38% | 2017–2019\n" +
-          "🏫 SSC | Sant Dnyaneshwar Vidyalay Katarni | 81.80% | 2012–2017";
+        output = "📚 Education\n\n" + formatEducation();
+        break;
+      case "achievements":
+        output = "🏆 Technical Accomplishments\n\n" + formatAchievements();
+        break;
+      case "contact":
+        output = "📞 Contact Information\n\n" +
+          "Feel free to reach out to me through:\n" +
+          "• Email: vaibhavzalte1004@gmail.com\n" +
+          "• LinkedIn: https://www.linkedin.com/in/vaibhavzalte/\n" +
+          "• GitHub: https://github.com/vaibhavzalte";
         break;
       case "clear":
         setHistory([]);

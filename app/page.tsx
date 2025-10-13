@@ -114,14 +114,16 @@ export default function Dashboard() {
                           href={exp.companyUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
+                          className="text-blue-600 dark:text-blue-400 font-bold text-2xl hover:underline"
                         >
                           {exp.companyName}
                         </a>{" "}
-                        <span className="text-sm text-gray-500 dark:text-gray-400">
+                        <span className="text-sm font-semibold text-gray-500 dark:text-gray-200">
                           ({exp.duration})
                         </span>
-                        <p className="mt-2">{exp.description}</p>
+                        {exp.description.map((desc, idx) => (
+                          <div key={idx} className="mt-2"><p className="mt-2">- {desc}</p></div>
+                        ))}
                       </>
                     ),
                     action: (
@@ -198,14 +200,22 @@ export default function Dashboard() {
                 <AboutPage />
               </TabsContent>
 
-              {/* AI */}
-              <TabsContent value="ai">
-                <div className="p-4 border rounded-xl shadow-sm">
-                  <h3 className="font-bold mb-2">Ask AI Assistant</h3>
-                  <p className="mb-4">Integrate OpenAI or HuggingFace here.</p>
-                  <Button>Start Chat</Button>
-                </div>
+              {/* Achievements */}
+              <TabsContent value="achievements">
+                <Timeline
+                  items={dashboardData.achievements.map((achievement) => ({
+                    title: achievement.title,
+                    description: (
+                      <div>
+                        {achievement.description.map((line, i) => (
+                          <p key={i}>{line}</p>
+                        ))}
+                      </div>
+                    ),
+                  }))}
+                />
               </TabsContent>
+
             </Tabs>
           </section>
         </main>
