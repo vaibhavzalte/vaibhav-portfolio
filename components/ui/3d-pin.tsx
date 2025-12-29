@@ -10,12 +10,14 @@ export const PinContainer = ({
   href,
   className,
   containerClassName,
+  target,
 }: {
   children: React.ReactNode;
   title?: string;
   href?: string;
   className?: string;
   containerClassName?: string;
+  target?: string;
 }) => {
   const [transform, setTransform] = useState(
     "translate(-50%,-50%) rotateX(0deg)"
@@ -31,6 +33,7 @@ export const PinContainer = ({
   return (
     <Link
       href={href || "/"}
+      target={target}
       className={cn("relative group/pin z-50 cursor-pointer", containerClassName)}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

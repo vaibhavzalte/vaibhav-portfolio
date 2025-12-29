@@ -9,16 +9,19 @@ import { dashboardData } from "./__data/data";
 import { BarChart3, Calendar } from "lucide-react";
 import Hero from "./(components)/hero-section";
 import { CoolMode } from "@/components/magicui/cool-mode";
-import SplashCursor from "../components/SplashCursor";
+// import SplashCursor from "../components/SplashCursor";
 import ContactPage from "./(components)/contact";
 import AboutPage from "./(components)/about";
-import Particles from "@/components/Particles";
+import dynamic from "next/dynamic";
+import TodoList from "./(components)/TodoList";
+
+const Particles = dynamic(() => import("@/components/Particles"), { ssr: false });
 
 export default function Dashboard() {
   return (
     <div className="relative flex flex-col min-h-screen overflow-hidden">
 
-      <SplashCursor />
+      {/* <SplashCursor /> */}
       {/* Background image */}
       <div className="absolute inset-0 bg-cover bg-center bg-fixed" />
 
@@ -84,17 +87,16 @@ export default function Dashboard() {
                     description: p.description,
                     action: (
                       <div className="flex gap-3 flex-wrap">
-                        {p.actions.map((a, i) => (
-                          <a
-                            key={i}
-                            href={a?.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <Button size="sm" variant={a.variant}>
-                              {a.label}
-                            </Button>
-                          </a>
+                        {p.actions.map((actionItem, i) => (
+                          <Button key={i} size="sm" variant={actionItem.variant} asChild>
+                            <a
+                              href={actionItem?.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {actionItem.label}
+                            </a>
+                          </Button>
                         ))}
                       </div>
                     ),
@@ -128,17 +130,16 @@ export default function Dashboard() {
                     ),
                     action: (
                       <div className="flex gap-3 flex-wrap">
-                        {exp.actions.map((a, idx) => (
-                          <a
-                            key={idx}
-                            href={a?.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <Button size="sm" variant={a.variant}>
-                              {a.label}
-                            </Button>
-                          </a>
+                        {exp?.actions?.map((actionItem, idx) => (
+                          <Button key={idx} size="sm" variant={actionItem.variant} asChild>
+                            <a
+                              href={actionItem?.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {actionItem.label}
+                            </a>
+                          </Button>
                         ))}
                       </div>
                     ),
@@ -219,6 +220,7 @@ export default function Dashboard() {
             </Tabs>
           </section>
         </main>
+        <TodoList />
         <Footer />
       </div>
     </div>

@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1761651507890.456,
+    "title": "Workout Routine",
+    "note": "Focus on cardio and strength training",
+    "date": "2025-10-30",
+    "color": "bg-blue-100",
+    "pinned": true,
+    "completed": false,
+    "todoItems": [
+      {
+        "text": "30 minutes running",
+        "completed": false
+      },
+      {
+        "text": "15 minutes weight lifting",
+        "completed": false
+      },
+      {
+        "text": "10 minutes stretching",
+        "completed": false
+      }
+    ]
+  }
+]
